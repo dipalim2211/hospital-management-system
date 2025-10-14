@@ -2,6 +2,7 @@ package com.hospitalManagementSystem;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -18,6 +19,8 @@ public class Patient {
         this.sc = sc;
     }
 
+    //get data from user
+    //Id is auto incremented in db
     public void addPatient(){
         System.out.print("Enter Patient Name : ");
         String name = sc.next();
@@ -46,4 +49,16 @@ public class Patient {
         }
     }
 
+    //Retrieve data from db and print
+    public void viewPatients(){
+
+        String query = "select * from patients";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
