@@ -57,6 +57,15 @@ public class Patient {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
+
+            //data comes from database(sql) and stored in java local variable to display
+            while(resultSet.next()){
+                int id =resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt(3);
+                String gender = resultSet.getString("gender");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
