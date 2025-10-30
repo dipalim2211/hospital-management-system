@@ -64,6 +64,7 @@ public class Patient {
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt(3);
                 String gender = resultSet.getString("gender");
+                System.out.print(id+name+age+gender);
             }
 
         }catch (Exception e){
