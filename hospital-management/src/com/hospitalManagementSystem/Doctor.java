@@ -34,9 +34,10 @@ public class Doctor {
             while(resultSet.next()){
                 int id =resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                int age = resultSet.getInt(3);
-                String gender = resultSet.getString("gender");
-                System.out.print(id+name+age+gender);
+                String specialization = resultSet.getString("specialization");
+
+                System.out.print(id+name+specialization);
+
             }
 
         }catch (Exception e){
