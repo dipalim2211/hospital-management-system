@@ -12,12 +12,9 @@ public class Doctor {
     //Encapsulation
     private Connection connection;  //take value from main class
 
-    private Scanner sc;
-
     //Parameterized constructor
-    public Doctor(Connection connection, Scanner sc) {
+    public Doctor(Connection connection) {
         this.connection = connection;
-        this.sc = sc;
     }
 
     // add doctors through db administration
