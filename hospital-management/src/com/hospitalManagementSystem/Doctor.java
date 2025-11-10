@@ -3,6 +3,7 @@ package com.hospitalManagementSystem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Doctor {
@@ -37,12 +38,30 @@ public class Doctor {
                 String specialization = resultSet.getString("specialization");
 
                 System.out.print(id+name+specialization);
-
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+
+    //Retrieve doctors using ID
+
+    public boolean getDoctorsById(int id){
+        String query ="select * from patients where id = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
